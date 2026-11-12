@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beatryz — Vencendo a Procrastinação</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandYellow: {
+                            50: '#fefce8',
+                            100: '#fef9c3',
+                            300: '#fde047',
+                            400: '#facc15',
+                            500: '#eab308',
+                            600: '#ca8a04',
+                        },
+                        brandGreen: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                        },
+                        brandDark: '#1c1917',
+                        brandMuted: '#44403c',
+                        brandBg: '#fcfbf7',
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        hand: ['Caveat', 'cursive'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #fcfbf7;
+            color: #1c1917;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .handwriting {
+            font-family: 'Caveat', cursive;
+        }
+        .glass-nav {
+            background: rgba(252, 251, 247, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .gradient-yellow-green {
+            background: linear-gradient(135deg, #fef08a 0%, #dcfce7 100%);
+        }
+        .card-shadow {
+            box-shadow: 0 10px 30px -5px rgba(234, 179, 8, 0.12), 0 4px 12px -2px rgba(22, 163, 74, 0.08);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 35px -5px rgba(234, 179, 8, 0.2), 0 8px 20px -2px rgba(22, 163, 74, 0.12);
+        }
+        .tab-btn.active {
+            background-color: #16a34a;
+            color: #ffffff;
+            border-color: #16a34a;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fefce8;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ca8a04;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #16a34a;
+        }
+    </style>
+</head>
+<body class="antialiased text-brandDark selection:bg-brandYellow-300 selection:text-brandDark">
+
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-brandYellow-200/60 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#inicio" class="flex items-center gap-3 group">
+                <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-brandYellow-400 to-brandGreen-500 flex items-center justify-center text-white text-xl font-bold shadow-md transform group-hover:rotate-6 transition-transform">
+                    <i class="fa-solid fa-seedling"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-extrabold tracking-tight text-brandDark block leading-none">Beatryz</span>
+                    <span class="text-xs font-semibold text-brandGreen-600 tracking-wider uppercase">Vencendo a Procrastinação</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center gap-1 font-medium text-sm text-brandMuted">
+                <a href="#inicio" class="px-3 py-2 rounded-xl hover:text-brandGreen-600 hover:bg-brandYellow-100/50 transition-colors">Início</a>
+                <a href="#o-que-e" class="px-3 py-2 rounded-xl hover:text-brandGreen-600 hover:bg-brandYellow-100/50 transition-colors">O que é?</a>
+                <a href="#momentos" class="px-3 py-2 rounded-xl hover:text-brandGreen-600 hover:bg-brandYellow-100/50 transition-colors">Momentos</a>
+                <a href="#por-que-adiamos" class="px-3 py-2 rounded-xl hover:text-brandGreen-600 hover:bg-brandYellow-100/50 transition-colors">Por que adiamos?</a>
+                <a href="#diario" class="px-3 py-2 rounded-xl hover:text-brandGreen-600 hover:bg-brandYellow-100/50 transition-colors">Diário</a>
+                <a href="#relatos" class="px-3 py-2 rounded-xl hover:text-brandGreen-600 hover:bg-brandYellow-100/50 transition-colors">Relatos</a>
+                <a href="#conecte-se" class="px-3 py-2 rounded-xl hover:text-brandGreen-600 hover:bg-brandYellow-100/50 transition-colors">Conecte-se</a>
+            </nav>
+
+            <div class="hidden sm:flex items-center gap-3">
+                <a href="#diario" class="px-5 py-2.5 rounded-full bg-brandGreen-600 hover:bg-brandGreen-700 text-white font-semibold text-sm transition-all shadow-md hover:shadow-lg flex items-center gap-2">
+                    <i class="fa-regular fa-pen-to-square"></i> Meu Diário
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-xl text-brandDark hover:bg-brandYellow-100 transition-colors" aria-label="Abrir menu">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-brandBg border-b border-brandYellow-200 px-4 pt-2 pb-6 space-y-2">
+            <a href="#inicio" class="mobile-link block px-4 py-2.5 rounded-xl text-brandDark font-medium hover:bg-brandYellow-100">Início</a>
+            <a href="#o-que-e" class="mobile-link block px-4 py-2.5 rounded-xl text-brandDark font-medium hover:bg-brandYellow-100">O que é?</a>
+            <a href="#momentos" class="mobile-link block px-4 py-2.5 rounded-xl text-brandDark font-medium hover:bg-brandYellow-100">Momentos que adiamos</a>
+            <a href="#por-que-adiamos" class="mobile-link block px-4 py-2.5 rounded-xl text-brandDark font-medium hover:bg-brandYellow-100">Por que adiamos?</a>
+            <a href="#diario" class="mobile-link block px-4 py-2.5 rounded-xl text-brandDark font-medium hover:bg-brandYellow-100">Meu Diário de Mudança</a>
+            <a href="#relatos" class="mobile-link block px-4 py-2.5 rounded-xl text-brandDark font-medium hover:bg-brandYellow-100">Relatos & Depoimentos</a>
+            <a href="#conecte-se" class="mobile-link block px-4 py-2.5 rounded-xl text-brandDark font-medium hover:bg-brandYellow-100">Conecte-se Conosco</a>
+        </div>
+    </header>
+
+    <section id="inicio" class="pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden relative">
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-brandYellow-300/40 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+        <div class="absolute top-1/2 -left-24 w-80 h-80 bg-brandGreen-100/60 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Hero Left Column -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brandYellow-100 border border-brandYellow-300/60 text-brandDark font-medium text-xs sm:text-sm">
+                        <span class="w-2 h-2 rounded-full bg-brandGreen-500 animate-pulse"></span>
+                        Projeto de acolhimento e ação contra a procrastinação
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-brandDark leading-none">
+                        Deixar para depois? <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brandGreen-600 via-brandGreen-500 to-brandYellow-600">
+                            Adiar é não viver um pouco mais!
+                        </span>
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-brandMuted max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
+                        Bem-vindo(a) ao lugar onde o depois é compreendido... mas não fica para sempre! Este espaço não te julga: ele acolhe, ensina e te dá ferramentas para você transformar o "depois" em "agora".
+                    </p>
+
+                    <!-- Quote Generator Card -->
+                    <div class="p-6 rounded-2xl bg-white border border-brandYellow-200 card-shadow text-left space-y-4 max-w-xl mx-auto lg:mx-0 relative">
+                        <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+                            <span class="text-xs font-bold uppercase tracking-wider text-brandGreen-600 flex items-center gap-2">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i> Frase do Dia
+                            </span>
+                            <button id="nextQuoteBtn" class="text-xs font-semibold text-brandDark hover:text-brandGreen-600 flex items-center gap-1.5 transition-colors bg-brandYellow-100 hover:bg-brandYellow-300 px-3 py-1.5 rounded-full">
+                                <i class="fa-solid fa-rotate-right"></i> Sortear nova
+                            </button>
+                        </div>
+                        
+                        <blockquote class="text-xl sm:text-2xl font-bold text-brandDark handwriting leading-snug" id="quoteText">
+                            "Hoje não dá, amanhã tenta de novo. O importante é não desistir da jornada!"
+                        </blockquote>
+                        <p class="text-xs text-brandMuted italic text-right" id="quoteAuthor">— Dica da Beatryz</p>
+                    </div>
+
+                    <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4">
+                        <a href="#diario" class="px-7 py-3.5 rounded-2xl bg-brandGreen-600 hover:bg-brandGreen-700 text-white font-bold text-base transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center gap-2">
+                            Começar meu Diário <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </a>
+                        <a href="#o-que-e" class="px-7 py-3.5 rounded-2xl bg-brandYellow-400 hover:bg-brandYellow-500 text-brandDark font-bold text-base transition-all shadow-md hover:-translate-y-0.5 flex items-center gap-2">
+                            Entender a Procrastinação
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Right Column / Beatryz Presentation -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md">
+                        <!-- Decorative Frame -->
+                        <div class="absolute inset-0 rounded-3xl bg-gradient-to-tr from-brandYellow-400 to-brandGreen-500 transform rotate-3 scale-105 opacity-80 blur-sm"></div>
+                        
+                        <div class="relative rounded-3xl bg-white p-6 border border-brandYellow-200 card-shadow text-center space-y-4">
+                            <div class="w-40 h-40 sm:w-48 sm:h-48 mx-auto rounded-full bg-gradient-to-br from-brandYellow-200 via-brandGreen-100 to-brandYellow-400 p-1.5 shadow-inner">
+                                <div class="w-full h-full rounded-full bg-white flex items-center justify-center overflow-hidden relative">
+                                    <i class="fa-solid fa-user-graduate text-7xl text-brandGreen-600"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-1">
+                                <h3 class="text-xl font-bold text-brandDark">Beatryz Vitória Costa de Oliveira</h3>
+                                <p class="text-xs font-semibold uppercase tracking-wider text-brandGreen-600">Proponente do Projeto</p>
+                            </div>
+
+                            <p class="text-sm text-brandMuted leading-relaxed italic bg-brandYellow-50 p-4 rounded-xl border border-brandYellow-200">
+                                "Criei este projeto porque sei exatamente como é sentir o peso de adiar algo importante. Quero te mostrar que com empatia e pequenos passos, é possível virar o jogo!"
+                            </p>
+
+                            <div class="grid grid-cols-3 gap-2 pt-2 border-t border-gray-100 text-center">
+                                <div class="p-2">
+                                    <span class="block text-lg font-extrabold text-brandGreen-600">01</span>
+                                    <span class="text-[10px] text-brandMuted font-medium">Acolher</span>
+                                </div>
+                                <div class="p-2 border-x border-gray-100">
+                                    <span class="block text-lg font-extrabold text-brandYellow-600">02</span>
+                                    <span class="text-[10px] text-brandMuted font-medium">Compreender</span>
+                                </div>
+                                <div class="p-2">
+                                    <span class="block text-lg font-extrabold text-brandGreen-600">03</span>
+                                    <span class="text-[10px] text-brandMuted font-medium">Agir</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="o-que-e" class="py-20 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-brandGreen-600 bg-brandGreen-50 px-3 py-1.5 rounded-full border border-brandGreen-100">
+                    Conceito & Ciência
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-brandDark mt-3">O que é Procrastinação?</h2>
+                <p class="text-brandMuted text-base sm:text-lg mt-3">
+                    Procrastinar não é preguiça — é uma resposta emocional do nosso cérebro. Vamos entender o que realmente acontece.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Concept Card 1 -->
+                <div class="p-8 rounded-3xl bg-brandBg border border-brandYellow-200 card-hover space-y-4">
+                    <div class="w-14 h-14 rounded-2xl bg-brandYellow-100 text-brandYellow-600 flex items-center justify-center text-2xl font-bold">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brandDark">A Definição Simples</h3>
+                    <p class="text-brandMuted text-sm leading-relaxed">
+                        Procrastinação é o ato voluntário de adiar o que precisa ser feito para mais tarde, mesmo sabendo que esse atraso trará ansiedade, prejuízos ou estresse futuro.
+                    </p>
+                </div>
+
+                <!-- Concept Card 2 -->
+                <div class="p-8 rounded-3xl bg-brandBg border border-brandGreen-200 card-hover space-y-4">
+                    <div class="w-14 h-14 rounded-2xl bg-brandGreen-100 text-brandGreen-600 flex items-center justify-center text-2xl font-bold">
+                        <i class="fa-solid fa-mug-hot"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brandDark">Descanso vs. Adiar com Culpa</h3>
+                    <p class="text-brandMuted text-sm leading-relaxed">
+                        <strong>Descansar de verdade</strong> renova suas energias sem remorso. <strong>Adiar com culpa</strong> mantém sua mente ocupada remoendo a tarefa pendente, cansando você o dobro.
+                    </p>
+                </div>
+
+                <!-- Concept Card 3 -->
+                <div class="p-8 rounded-3xl bg-brandBg border border-brandYellow-200 card-hover space-y-4">
+                    <div class="w-14 h-14 rounded-2xl bg-brandYellow-100 text-brandYellow-600 flex items-center justify-center text-2xl font-bold">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brandDark">O Cérebro em Ação</h3>
+                    <p class="text-brandMuted text-sm leading-relaxed">
+                        Seu cérebro busca <strong>prazer imediato</strong> e tenta evitar qualquer desconforto inicial. O sistema límbico (emoção) vence temporariamente o córtex pré-frontal (planejamento).
+                    </p>
+                </div>
+            </div>
+
+            <!-- Interactive Comparison Banner -->
+            <div class="mt-12 p-8 rounded-3xl gradient-yellow-green border border-brandYellow-300/80 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="space-y-2 text-center md:text-left">
+                    <h4 class="text-xl font-bold text-brandDark">Você sabia disso?</h4>
+                    <p class="text-sm text-brandMuted max-w-2xl">
+                        Acolher seu sentimento diminui a ansiedade. Quanto menos culpa você sente por ter adiado no passado, mais fácil fica começar agora no presente!
+                    </p>
+                </div>
+                <a href="#por-que-adiamos" class="px-6 py-3 rounded-xl bg-white hover:bg-brandDark hover:text-white text-brandDark font-bold text-sm transition-all shadow-md whitespace-nowrap">
+                    Entender o Ciclo <i class="fa-solid fa-arrow-down ml-1"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="momentos" class="py-20 bg-brandBg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-brandYellow-600 bg-brandYellow-100 px-3 py-1.5 rounded-full border border-brandYellow-200">
+                    Áreas da Vida
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-brandDark mt-3">Momentos que Adiamos</h2>
+                <p class="text-brandMuted text-base sm:text-lg mt-3">
+                    Reconhecer em qual área você mais costuma postergar é o primeiro passo para retomar o controle.
+                </p>
+            </div>
+
+            <!-- Tab Buttons -->
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-10" id="momentTabs">
+                <button data-target="estudos" class="tab-btn active px-5 py-2.5 rounded-2xl border border-gray-200 bg-white text-brandDark font-semibold text-sm transition-all hover:border-brandGreen-500">
+                    <i class="fa-solid fa-graduation-cap mr-1.5"></i> Estudos & Escola
+                </button>
+                <button data-target="saude" class="tab-btn px-5 py-2.5 rounded-2xl border border-gray-200 bg-white text-brandDark font-semibold text-sm transition-all hover:border-brandGreen-500">
+                    <i class="fa-solid fa-heart-pulse mr-1.5"></i> Saúde & Bem-estar
+                </button>
+                <button data-target="organizacao" class="tab-btn px-5 py-2.5 rounded-2xl border border-gray-200 bg-white text-brandDark font-semibold text-sm transition-all hover:border-brandGreen-500">
+                    <i class="fa-solid fa-boxes-packing mr-1.5"></i> Organização do Espaço
+                </button>
+                <button data-target="decisoes" class="tab-btn px-5 py-2.5 rounded-2xl border border-gray-200 bg-white text-brandDark font-semibold text-sm transition-all hover:border-brandGreen-500">
+                    <i class="fa-solid fa-shuffle mr-1.5"></i> Decisões Importantes
+                </button>
+                <button data-target="sonhos" class="tab-btn px-5 py-2.5 rounded-2xl border border-gray-200 bg-white text-brandDark font-semibold text-sm transition-all hover:border-brandGreen-500">
+                    <i class="fa-solid fa-rocket mr-1.5"></i> Sonhos & Projetos
+                </button>
+            </div>
+
+            <!-- Tab Content Display -->
+            <div class="p-8 sm:p-12 rounded-3xl bg-white border border-brandYellow-200 card-shadow min-h-[260px] flex items-center">
+                <div id="momentContent" class="w-full">
+                    <!-- Dynamic Javascript Content Injected Here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="por-que-adiamos" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-brandGreen-600 bg-brandGreen-50 px-3 py-1.5 rounded-full border border-brandGreen-100">
+                    Diagnóstico
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-brandDark mt-3">Quando o "Depois" Vira "Hoje"</h2>
+                <p class="text-brandMuted text-base sm:text-lg mt-3">
+                    Aprenda a mapear o ciclo e conheça as ferramentas para interrompê-lo com tranquilidade.
+                </p>
+            </div>
+
+            <!-- Cycle Visualization -->
+            <div class="mb-16">
+                <h3 class="text-xl font-bold text-center text-brandDark mb-8">O Ciclo Tradicional da Procrastinação</h3>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+                    <!-- Step 1 -->
+                    <div class="p-6 rounded-2xl bg-brandBg border border-brandYellow-300 text-center space-y-3 relative">
+                        <span class="w-8 h-8 rounded-full bg-brandYellow-400 text-brandDark font-extrabold text-sm flex items-center justify-center mx-auto">1</span>
+                        <h4 class="font-bold text-brandDark text-lg">Adiar a Tarefa</h4>
+                        <p class="text-xs text-brandMuted">A tarefa parece grande, chata ou assustadora demais.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="p-6 rounded-2xl bg-brandBg border border-brandGreen-300 text-center space-y-3 relative">
+                        <span class="w-8 h-8 rounded-full bg-brandGreen-500 text-white font-extrabold text-sm flex items-center justify-center mx-auto">2</span>
+                        <h4 class="font-bold text-brandDark text-lg">Alívio Temporário</h4>
+                        <p class="text-xs text-brandMuted">Você faz outra coisa agradável e sente uma paz momentânea.</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="p-6 rounded-2xl bg-brandBg border border-red-200 text-center space-y-3 relative">
+                        <span class="w-8 h-8 rounded-full bg-red-500 text-white font-extrabold text-sm flex items-center justify-center mx-auto">3</span>
+                        <h4 class="font-bold text-brandDark text-lg">A Culpa Chega</h4>
+                        <p class="text-xs text-brandMuted">O prazo se aproxima e surge a ansiedade e auto-cobrança.</p>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="p-6 rounded-2xl bg-brandBg border border-brandYellow-300 text-center space-y-3 relative">
+                        <span class="w-8 h-8 rounded-full bg-brandYellow-500 text-white font-extrabold text-sm flex items-center justify-center mx-auto">4</span>
+                        <h4 class="font-bold text-brandDark text-lg">Adiar de Novo</h4>
+                        <p class="text-xs text-brandMuted">Com o estresse alto, o cérebro quer fugir novamente do ciclo.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- How to Break the Cycle -->
+            <div class="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-brandYellow-100/70 via-white to-brandGreen-100/70 border border-brandYellow-300/80 shadow-sm space-y-8">
+                <div class="text-center max-w-2xl mx-auto space-y-2">
+                    <h3 class="text-2xl font-extrabold text-brandDark">Como Quebrar o Ciclo?</h3>
+                    <p class="text-sm text-brandMuted">Estratégias práticas recomendadas pelo projeto Beatryz</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="p-6 rounded-2xl bg-white border border-gray-100 shadow-sm space-y-3">
+                        <div class="text-brandGreen-600 text-2xl font-bold"><i class="fa-solid fa-stairs"></i></div>
+                        <h4 class="font-bold text-brandDark">Pequenas Vitórias</h4>
+                        <p class="text-xs text-brandMuted leading-relaxed">
+                            Divida tarefas gigantes em micro-passos. Em vez de "estudar o livro todo", foque em "ler 1 página".
+                        </p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-white border border-gray-100 shadow-sm space-y-3">
+                        <div class="text-brandYellow-600 text-2xl font-bold"><i class="fa-solid fa-stopwatch"></i></div>
+                        <h4 class="font-bold text-brandDark">Regra dos 2 Minutos</h4>
+                        <p class="text-xs text-brandMuted leading-relaxed">
+                            Se algo leva menos de 2 minutos para fazer (ex: responder uma mensagem, guardar uma peça), faça na hora sem pensar.
+                        </p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-white border border-gray-100 shadow-sm space-y-3">
+                        <div class="text-brandGreen-600 text-2xl font-bold"><i class="fa-solid fa-shoe-prints"></i></div>
+                        <h4 class="font-bold text-brandDark">Apenas o Primeiro Passo</h4>
+                        <p class="text-xs text-brandMuted leading-relaxed">
+                            Apenas abra o documento ou pegue o livro. O atrito inicial é a parte mais difícil; depois disso o cérebro engrena!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="diario" class="py-20 bg-brandBg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-brandGreen-600 bg-brandGreen-100 px-3 py-1.5 rounded-full border border-brandGreen-200">
+                    Sua Jornada Pessoal
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-brandDark mt-3">Meu Diário de Mudança</h2>
+                <p class="text-brandMuted text-base sm:text-lg mt-3">
+                    Registre seus momentos com honestidade. Ver a sua própria evolução semana a semana fortalece sua confiança!
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                <!-- Journal Form -->
+                <div class="lg:col-span-5 p-8 rounded-3xl bg-white border border-brandYellow-200 card-shadow space-y-6">
+                    <div class="border-b border-gray-100 pb-4">
+                        <h3 class="text-xl font-bold text-brandDark flex items-center gap-2">
+                            <i class="fa-solid fa-book-bookmark text-brandGreen-600"></i> Novo Registro
+                        </h3>
+                        <p class="text-xs text-brandMuted">Sem julgamentos. Apenas reflexão e aprendizado.</p>
+                    </div>
+
+                    <form id="journalForm" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-brandDark uppercase tracking-wider mb-1.5">
+                                O que você adiou?
+                            </label>
+                            <input type="text" id="jTask" required placeholder="Ex: Estudar para a prova de biologia..." 
+                                class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brandGreen-500 focus:ring-2 focus:ring-brandGreen-100 text-sm outline-none transition-all">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-brandDark uppercase tracking-wider mb-1.5">
+                                Por que você adiou?
+                            </label>
+                            <select id="jReason" required 
+                                class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brandGreen-500 focus:ring-2 focus:ring-brandGreen-100 text-sm outline-none transition-all bg-white">
+                                <option value="" disabled selected>Selecione o motivo principal...</option>
+                                <option value="Medo do resultado / Perfeccionismo">Medo do resultado / Perfeccionismo</option>
+                                <option value="Ansiedade / Sobrecarga">Ansiedade / Sobrecarga</option>
+                                <option value="Tédio / Tarefa desagradável">Tédio / Tarefa desagradável</option>
+                                <option value="Falta de plano claro">Falta de plano claro</option>
+                                <option value="Cansaço físico ou mental">Cansaço físico ou mental</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-brandDark uppercase tracking-wider mb-1.5">
+                                O que fez (ou vai fazer) diferente?
+                            </label>
+                            <textarea id="jAction" rows="3" required placeholder="Ex: Dividi em 3 partes de 15 minutos e comecei a primeira..." 
+                                class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brandGreen-500 focus:ring-2 focus:ring-brandGreen-100 text-sm outline-none transition-all resize-none"></textarea>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-brandDark uppercase tracking-wider mb-1.5">
+                                Como se sentiu depois?
+                            </label>
+                            <input type="text" id="jFeeling" required placeholder="Ex: Aliviado(a) e com sensação de dever cumprido!" 
+                                class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brandGreen-500 focus:ring-2 focus:ring-brandGreen-100 text-sm outline-none transition-all">
+                        </div>
+
+                        <button type="submit" class="w-full py-3.5 rounded-xl bg-brandGreen-600 hover:bg-brandGreen-700 text-white font-bold text-sm transition-all shadow-md flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-plus"></i> Guardar no Diário
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Journal List Display -->
+                <div class="lg:col-span-7 space-y-4">
+                    <div class="flex items-center justify-between bg-white p-4 rounded-2xl border border-brandYellow-200">
+                        <h3 class="text-base font-bold text-brandDark flex items-center gap-2">
+                            <i class="fa-solid fa-clock-history text-brandYellow-600"></i> Seus Registros
+                            <span id="journalCount" class="text-xs bg-brandYellow-200 text-brandDark px-2 py-0.5 rounded-full">0</span>
+                        </h3>
+                        <button id="clearJournalBtn" class="text-xs font-semibold text-red-600 hover:text-red-700 hover:bg-red-50 px-3 py-1.5 rounded-lg transition-colors">
+                            <i class="fa-solid fa-trash-can mr-1"></i> Limpar tudo
+                        </button>
+                    </div>
+
+                    <!-- Scrollable Entries Container -->
+                    <div id="journalEntries" class="space-y-4 max-h-[520px] overflow-y-auto pr-1">
+                        <!-- Entries render via JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="relatos" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-brandYellow-600 bg-brandYellow-100 px-3 py-1.5 rounded-full border border-brandYellow-200">
+                    Comunidade de Apoio
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-brandDark mt-3">Relatos e Depoimentos</h2>
+                <p class="text-brandMuted text-base sm:text-lg mt-3">
+                    Histórias reais, sem perfeição — apenas progresso diário. Veja como outras pessoas enfrentaram esse desafio.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16" id="testimonialsList">
+                <!-- Static Story 1 -->
+                <div class="p-8 rounded-3xl bg-brandBg border border-brandYellow-200 space-y-4 card-shadow">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-brandGreen-100 text-brandGreen-700 font-bold flex items-center justify-center text-sm">
+                            CL
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-brandDark text-sm">Camila L.</h4>
+                            <span class="text-xs text-brandMuted">Estudante universitária</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-brandMuted italic leading-relaxed">
+                        "Eu deixava o TCC sempre para depois por medo de ficar ruim. Quando aprendi a 'Regra do Primeiro Passo' e escrevi só meio parágrafo por dia, destravei!"
+                    </p>
+                    <span class="inline-block text-[10px] font-bold text-brandGreen-600 bg-brandGreen-50 px-2.5 py-1 rounded-full">#VenciComMiniPassos</span>
+                </div>
+
+                <!-- Static Story 2 -->
+                <div class="p-8 rounded-3xl bg-brandBg border border-brandYellow-200 space-y-4 card-shadow">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-brandYellow-100 text-brandYellow-700 font-bold flex items-center justify-center text-sm">
+                            RA
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-brandDark text-sm">Rodrigo A.</h4>
+                            <span class="text-xs text-brandMuted">Desenvolvedor</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-brandMuted italic leading-relaxed">
+                        "Adiaria exames de rotina por meses. Percebi que era ansiedade do diagnóstico. Agendar a consulta levou 2 minutos e me deu uma paz gigante."
+                    </p>
+                    <span class="inline-block text-[10px] font-bold text-brandYellow-600 bg-brandYellow-100 px-2.5 py-1 rounded-full">#SaúdeEmPrimeiroLugar</span>
+                </div>
+
+                <!-- Static Story 3 -->
+                <div class="p-8 rounded-3xl bg-brandBg border border-brandYellow-200 space-y-4 card-shadow">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-brandGreen-100 text-brandGreen-700 font-bold flex items-center justify-center text-sm">
+                            MS
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-brandDark text-sm">Mariana S.</h4>
+                            <span class="text-xs text-brandMuted">Empreendedora</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-brandMuted italic leading-relaxed">
+                        "O diário do site me fez entender que meu motivo principal para adiar era a falta de um plano simples. Hoje divido tudo em listas minúsculas!"
+                    </p>
+                    <span class="inline-block text-[10px] font-bold text-brandGreen-600 bg-brandGreen-50 px-2.5 py-1 rounded-full">#Autoconhecimento</span>
+                </div>
+            </div>
+
+            <!-- Submit Testimonial Form Banner -->
+            <div class="p-8 rounded-3xl gradient-yellow-green border border-brandYellow-300 max-w-3xl mx-auto space-y-6">
+                <div class="text-center space-y-2">
+                    <h3 class="text-2xl font-bold text-brandDark">Compartilhe sua pequena vitória!</h3>
+                    <p class="text-xs text-brandMuted">Sua história pode ser o incentivo que alguém precisa hoje.</p>
+                </div>
+
+                <form id="storyForm" class="space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <input type="text" id="sName" required placeholder="Seu nome ou iniciais" 
+                            class="w-full px-4 py-3 rounded-xl border border-white/80 bg-white/90 text-sm outline-none focus:ring-2 focus:ring-brandGreen-500">
+                        <input type="text" id="sTag" placeholder="O que você superou? (Ex: Estudos, Limpeza...)" 
+                            class="w-full px-4 py-3 rounded-xl border border-white/80 bg-white/90 text-sm outline-none focus:ring-2 focus:ring-brandGreen-500">
+                    </div>
+                    <textarea id="sStory" rows="3" required placeholder="Conte em poucas palavras como você transformou o 'depois' em 'agora'..." 
+                        class="w-full px-4 py-3 rounded-xl border border-white/80 bg-white/90 text-sm outline-none focus:ring-2 focus:ring-brandGreen-500 resize-none"></textarea>
+
+                    <button type="submit" class="w-full py-3 rounded-xl bg-brandDark hover:bg-black text-white font-bold text-sm transition-all shadow-md">
+                        Enviar meu relato <i class="fa-solid fa-paper-plane ml-1"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="conecte-se" class="py-20 bg-brandBg border-t border-brandYellow-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Info Box -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-xs font-bold uppercase tracking-widest text-brandGreen-600 bg-brandGreen-100 px-3 py-1.5 rounded-full border border-brandGreen-200">
+                        Canais de Atendimento
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-brandDark">Conecte-se Conosco</h2>
+                    <p class="text-brandMuted text-sm leading-relaxed">
+                        Quer tirar dúvidas, propor parcerias ou compartilhar sua história diretamente com a equipe do Projeto Beatryz? Estamos aqui para te ouvir!
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <!-- Instagram Card -->
+                        <div class="flex items-center gap-4 p-4 rounded-2xl bg-white border border-brandYellow-200 card-shadow">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-600 text-white flex items-center justify-center text-xl font-bold">
+                                <i class="fa-brands fa-instagram"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brandDark text-sm">Instagram</h4>
+                                <p class="text-xs text-brandMuted">Dicas diárias, frases e rotinas acolhedoras</p>
+                                <span class="text-xs font-bold text-brandGreen-600 hover:underline cursor-pointer">@beatrr_yz</span>
+                            </div>
+                        </div>
+
+                        <!-- Email Card -->
+                        <div class="flex items-center gap-4 p-4 rounded-2xl bg-white border border-brandYellow-200 card-shadow">
+                            <div class="w-12 h-12 rounded-xl bg-brandGreen-500 text-white flex items-center justify-center text-xl font-bold">
+                                <i class="fa-regular fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brandDark text-sm">E-mail para Contato</h4>
+                                <p class="text-xs text-brandMuted">Sugestões, parcerias e palestras</p>
+                                <span class="text-xs font-bold text-brandGreen-600">beatryzvitoria863@gmail.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Contact Form -->
+                <div class="lg:col-span-7 p-8 sm:p-10 rounded-3xl bg-white border border-brandYellow-200 card-shadow space-y-6">
+                    <div>
+                        <h3 class="text-xl font-bold text-brandDark">Envie uma mensagem</h3>
+                        <p class="text-xs text-brandMuted">Preencha os campos abaixo e entraremos em contato.</p>
+                    </div>
+
+                    <form id="contactForm" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-brandDark uppercase tracking-wider mb-1">Seu Nome</label>
+                                <input type="text" required placeholder="Como prefere ser chamado(a)" 
+                                    class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm outline-none focus:border-brandGreen-500 focus:ring-2 focus:ring-brandGreen-100">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-brandDark uppercase tracking-wider mb-1">Seu E-mail</label>
+                                <input type="email" required placeholder="seuemail@exemplo.com" 
+                                    class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm outline-none focus:border-brandGreen-500 focus:ring-2 focus:ring-brandGreen-100">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-brandDark uppercase tracking-wider mb-1">Assunto</label>
+                            <select class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm outline-none focus:border-brandGreen-500 focus:ring-2 focus:ring-brandGreen-100 bg-white">
+                                <option>Dúvida sobre o projeto</option>
+                                <option>Sugestão de conteúdo</option>
+                                <option>Parcerias / Eventos</option>
+                                <option>Outro motivo</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-brandDark uppercase tracking-wider mb-1">Mensagem</label>
+                            <textarea rows="4" required placeholder="Escreva aqui com tranquilidade..." 
+                                class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm outline-none focus:border-brandGreen-500 focus:ring-2 focus:ring-brandGreen-100 resize-none"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-3.5 rounded-xl bg-brandYellow-400 hover:bg-brandYellow-500 text-brandDark font-bold text-sm transition-all shadow-md">
+                            Enviar Mensagem <i class="fa-solid fa-paper-plane ml-1"></i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-brandDark text-white py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-gray-800 text-center md:text-left">
+                <div class="space-y-1">
+                    <span class="text-2xl font-extrabold text-white tracking-tight">Beatryz</span>
+                    <p class="text-xs text-gray-400">Proponente: Beatryz Vitória Costa de Oliveira</p>
+                </div>
+
+                <p class="text-lg font-bold text-brandYellow-400 handwriting">
+                    "Adiar é não viver um pouco mais!"
+                </p>
+
+                <div class="flex gap-4 text-gray-400 text-lg">
+                    <a href="#" class="hover:text-brandYellow-400 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-brandYellow-400 transition-colors"><i class="fa-regular fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <div class="text-center text-xs text-gray-400 space-y-2">
+                <p>Obrigada por visitar este espaço. Lembre-se: não precisa mudar tudo de uma vez. Basta dar o primeiro passo hoje. O amanhã agradece.</p>
+                <p>© 2026 Projeto Beatryz — Deixar para Depois / Vencendo a Procrastinação. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // -------------------------------------------------------------
+        // 1. MOTIVATIONAL QUOTES DATA & GENERATOR
+        // -------------------------------------------------------------
+        const quotes = [
+            { text: "Hoje não dá, amanhã tenta de novo. O importante é manter o movimento!", author: "Beatryz Vitória" },
+            { text: "Regra de ouro: faça o primeiro movimento, mesmo que seja minúsculo.", author: "Filosofia do Projeto" },
+            { text: "Feito é muito melhor do que o perfeito não começado.", author: "Acolhimento & Ação" },
+            { text: "Não se culpe pelo que adiou ontem. Foque nos próximos 5 minutos de hoje.", author: "Dica da Beatryz" },
+            { text: "Grandes montanhas são escaladas um único passo de cada vez.", author: "Projeto Beatryz" },
+            { text: "A ansiedade diminui quando a ação começa.", author: "Neurociência Prática" }
+        ];
+
+        const quoteTextEl = document.getElementById('quoteText');
+        const quoteAuthorEl = document.getElementById('quoteAuthor');
+        const nextQuoteBtn = document.getElementById('nextQuoteBtn');
+
+        nextQuoteBtn.addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            quoteTextEl.style.opacity = 0;
+            setTimeout(() => {
+                quoteTextEl.textContent = `"${quotes[randomIndex].text}"`;
+                quoteAuthorEl.textContent = `— ${quotes[randomIndex].author}`;
+                quoteTextEl.style.opacity = 1;
+            }, 180);
+        });
+
+        // -------------------------------------------------------------
+        // 2. MOMENTS WE PROCRASTINATE TABS DATA
+        // -------------------------------------------------------------
+        const momentData = {
+            estudos: {
+                title: "Estudos & Tarefas Escolares / Acadêmicas",
+                icon: "fa-graduation-cap",
+                color: "text-brandGreen-600",
+                description: "Provas longas, leituras extensas e TCCs costumam assustar pelo tamanho.",
+                tip: "Divida o estudo em blocos de 15 minutos. Leia apenas 2 páginas antes de decidir parar."
+            },
+            saude: {
+                title: "Cuidados com a Saúde & Atividade Física",
+                icon: "fa-heart-pulse",
+                color: "text-red-500",
+                description: "Marcar exames, começar um exercício ou cuidar da alimentação.",
+                tip: "Coloque a roupa de treino logo pela manhã. A decisão de ir fica muito mais leve!"
+            },
+            organizacao: {
+                title: "Organização do Espaço & Quarto",
+                icon: "fa-boxes-packing",
+                color: "text-brandYellow-600",
+                description: "Guardar roupas, arrumar a mesa de trabalho ou limpar a caixa de e-mails.",
+                tip: "Use a regra dos 5 itens: arrume exatamente 5 objetos antes de sentar para descansar."
+            },
+            decisoes: {
+                title: "Decisões Importantes & Conversas Difíceis",
+                icon: "fa-shuffle",
+                color: "text-purple-600",
+                description: "Escolhas de carreira, conversas pendentes ou resoluções financeiras.",
+                tip: "Escreva os prós e contras no papel. Tirar da cabeça diminui a névoa mental."
+            },
+            sonhos: {
+                title: "Sonhos & Projetos Pessoais",
+                icon: "fa-rocket",
+                color: "text-blue-600",
+                description: "Aprender um idioma, criar um canal, iniciar um hobby ou viajar.",
+                tip: "Dedique 10 minutos por semana ao seu projeto. Em um ano serão mais de 8 horas dedicadas!"
+            }
+        };
+
+        const momentTabs = document.querySelectorAll('#momentTabs button');
+        const momentContent = document.getElementById('momentContent');
+
+        function renderMoment(key) {
+            const data = momentData[key];
+            momentContent.innerHTML = `
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                    <div class="md:col-span-8 space-y-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-2xl bg-brandBg flex items-center justify-center text-2xl ${data.color}">
+                                <i class="fa-solid ${data.icon}"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-brandDark">${data.title}</h3>
+                        </div>
+                        <p class="text-sm text-brandMuted leading-relaxed">${data.description}</p>
+                        <div class="p-4 rounded-2xl bg-brandGreen-50 border border-brandGreen-200 text-xs text-brandGreen-700 font-medium">
+                            💡 <strong>Dica da Beatryz:</strong> ${data.tip}
+                        </div>
+                    </div>
+                    <div class="md:col-span-4 text-center p-6 rounded-2xl bg-brandBg border border-brandYellow-200">
+                        <span class="text-xs font-bold text-brandMuted uppercase tracking-wider">Acolhimento</span>
+                        <p class="text-sm font-semibold text-brandDark mt-2">"Reconhecer que você adia nessa área é o primeiro grande passo para mudar."</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        momentTabs.forEach(btn => {
+            btn.addEventListener('click', () => {
+                momentTabs.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                renderMoment(btn.getAttribute('data-target'));
+            });
+        });
+        // Initial render
+        renderMoment('estudos');
+
+        // -------------------------------------------------------------
+        // 3. MY JOURNAL OF CHANGE (LOCAL STORAGE PERSISTENCE)
+        // -------------------------------------------------------------
+        const journalForm = document.getElementById('journalForm');
+        const journalEntriesEl = document.getElementById('journalEntries');
+        const journalCountEl = document.getElementById('journalCount');
+        const clearJournalBtn = document.getElementById('clearJournalBtn');
+
+        let entries = JSON.parse(localStorage.getItem('beatryz_journal_entries') || '[]');
+
+        function saveJournal() {
+            localStorage.setItem('beatryz_journal_entries', JSON.stringify(entries));
+            renderJournal();
+        }
+
+        function renderJournal() {
+            journalCountEl.textContent = entries.length;
+            if (entries.length === 0) {
+                journalEntriesEl.innerHTML = `
+                    <div class="p-8 text-center bg-white rounded-2xl border border-dashed border-gray-300 text-brandMuted space-y-2">
+                        <i class="fa-solid fa-book-open text-3xl text-brandYellow-500"></i>
+                        <p class="text-sm font-medium">Seu diário ainda está vazio.</p>
+                        <p class="text-xs text-gray-400">Preencha o formulário ao lado para registrar seu primeiro momento de superação!</p>
+                    </div>
+                `;
+                return;
+            }
+
+            journalEntriesEl.innerHTML = entries.map((item, index) => `
+                <div class="p-5 rounded-2xl bg-white border border-brandYellow-200 shadow-sm space-y-3 relative group">
+                    <div class="flex items-center justify-between border-b border-gray-100 pb-2">
+                        <span class="text-xs font-bold text-brandGreen-600 flex items-center gap-1">
+                            <i class="fa-regular fa-calendar"></i> ${item.date}
+                        </span>
+                        <button onclick="deleteEntry(${index})" class="text-xs text-gray-400 hover:text-red-500 transition-colors" title="Excluir este registro">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
+
+                    <div class="space-y-1">
+                        <span class="text-[10px] font-bold uppercase text-brandMuted tracking-wider">O que adiou:</span>
+                        <h4 class="text-sm font-bold text-brandDark">${escapeHtml(item.task)}</h4>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                        <div class="p-2.5 rounded-xl bg-brandYellow-50 border border-brandYellow-100">
+                            <strong class="block text-[10px] uppercase text-brandYellow-700">Motivo:</strong>
+                            ${escapeHtml(item.reason)}
+                        </div>
+                        <div class="p-2.5 rounded-xl bg-brandGreen-50 border border-brandGreen-100">
+                            <strong class="block text-[10px] uppercase text-brandGreen-700">Ação diferente:</strong>
+                            ${escapeHtml(item.action)}
+                        </div>
+                    </div>
+
+                    <div class="text-xs pt-1 border-t border-gray-50 text-brandMuted">
+                        <strong>Sentimento final:</strong> ${escapeHtml(item.feeling)}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function escapeHtml(str) {
+            return str.replace(/[&<>"']/g, function(m) {
+                return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m];
+            });
+        }
+
+        journalForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const task = document.getElementById('jTask').value;
+            const reason = document.getElementById('jReason').value;
+            const action = document.getElementById('jAction').value;
+            const feeling = document.getElementById('jFeeling').value;
+
+            const newEntry = {
+                task, reason, action, feeling,
+                date: new Date().toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' })
+            };
+
+            entries.unshift(newEntry);
+            saveJournal();
+            journalForm.reset();
+        });
+
+        window.deleteEntry = function(index) {
+            entries.splice(index, 1);
+            saveJournal();
+        };
+
+        clearJournalBtn.addEventListener('click', () => {
+            if (entries.length === 0) return;
+            if (confirm('Tem certeza que deseja apagar todos os registros do diário?')) {
+                entries = [];
+                saveJournal();
+            }
+        });
+
+        // Initial render of saved entries
+        renderJournal();
+
+        // -------------------------------------------------------------
+        // 4. TESTIMONIAL SUBMISSION FORM
+        // -------------------------------------------------------------
+        const storyForm = document.getElementById('storyForm');
+        const testimonialsList = document.getElementById('testimonialsList');
+
+        storyForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('sName').value;
+            const tag = document.getElementById('sTag').value || 'VencendoAProcrastinação';
+            const story = document.getElementById('sStory').value;
+
+            const initials = name.slice(0, 2).toUpperCase();
+
+            const newCard = document.createElement('div');
+            newCard.className = 'p-8 rounded-3xl bg-brandBg border border-brandGreen-300 space-y-4 card-shadow animate-fade-in';
+            newCard.innerHTML = `
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-brandGreen-500 text-white font-bold flex items-center justify-center text-sm">
+                        ${initials}
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-brandDark text-sm">${escapeHtml(name)}</h4>
+                        <span class="text-xs text-brandMuted">Membro da comunidade</span>
+                    </div>
+                </div>
+                <p class="text-xs text-brandMuted italic leading-relaxed">
+                    "${escapeHtml(story)}"
+                </p>
+                <span class="inline-block text-[10px] font-bold text-brandGreen-600 bg-brandGreen-50 px-2.5 py-1 rounded-full">#${escapeHtml(tag.replace(/\s+/g, ''))}</span>
+            `;
+
+            testimonialsList.prepend(newCard);
+            storyForm.reset();
+            alert('Sua história foi publicada com sucesso! Obrigado por compartilhar!');
+        });
+
+        // -------------------------------------------------------------
+        // 5. CONTACT FORM INTERACTION
+        // -------------------------------------------------------------
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Obrigado pelo seu contato! A equipe do Projeto Beatryz responderá em breve.');
+            contactForm.reset();
+        });
+
+        // -------------------------------------------------------------
+        // 6. MOBILE DRAWER NAVIGATION
+        // -------------------------------------------------------------
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
